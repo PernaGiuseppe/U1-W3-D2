@@ -35,7 +35,7 @@
 
   <body>
     <div>
-      <h1 onclick="makeItClickable()">Questo è il titolo della pagina</h1>
+      <h1>Questo è il titolo della pagina</h1>
       <h2>Questo è il sottotitolo della pagina</h2>
     </div>
 
@@ -154,6 +154,8 @@
       const hideFirstUl = function () {
         const firstUlGoAway = document.querySelector('div hr+ul')
         firstUlGoAway.style.display = 'none'
+        // firstUlGoAway.style.visibility = "hidden"
+        // firstUlGoAway.style.opacity = 0
       }
       hideFirstUl()
 
@@ -175,12 +177,19 @@
         */
 
       const makeItClickable = function () {
-        const h1ClickRemove = document.querySelector('h1')
-        for (let i = 0; i < h1ClickRemove; i++) {
-          h1ClickRemove[i].splice(-1, 1)
-        }
+        // 1) recupero l'h1
+        const h1 = document.getElementsByTagName('h1')[0]
+        h1.innerText = h1.innerText.slice(0, h1.innerText.length - 1)
       }
-      makeItClickable()
+      // const makeItClickable = function () {
+      //   const h1ClickRemove = document.querySelector('h1')
+      //   h1ClickRemove.innerText = h1ClickRemove.innerText.slice(
+      //     0,
+      //     h1ClickRemove.length - 1
+      //   )
+      // }
+
+      // makeItClickable()
       /* ESERCIZIO 10
          Crea una funzione che, al click sul footer, riveli l'URL del link interno come contenuto di un alert()
         */
@@ -191,6 +200,11 @@
           '"https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents"'
         alert(allert)
       }
+      // const revealFooterLink = function () {
+      //   const link = document.querySelector('footer a')
+      //   alert(link.getAttribute('href')) // getAttribute è un metodo degli elementi HTML che restituisce
+      //   // il valore dell'attributo specificato
+      // }
 
       /* ESERCIZIO 11
          Crea una funzione che crei una tabella nell'elemento con id "tableArea".
